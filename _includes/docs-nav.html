@@ -1,0 +1,15 @@
+<nav class="docs-nav" aria-label="文档目录">
+  <div class="docs-nav-title">目录</div>
+  <ul>
+    <li><a href="{{ '/index.html' | relative_url }}"{% if page.name == 'index.md' %} class="active" aria-current="page"{% endif %}>总览</a></li>
+    <li><a href="{{ '/00-basics.html' | relative_url }}"{% if page.name == '00-basics.md' %} class="active" aria-current="page"{% endif %}>00 零基础准备</a></li>
+    <li><a href="{{ '/01-vps-selection.html' | relative_url }}"{% if page.name == '01-vps-selection.md' %} class="active" aria-current="page"{% endif %}>01 VPS 选型</a></li>
+    <li><a href="{{ '/02-server-setup.html' | relative_url }}"{% if page.name == '02-server-setup.md' %} class="active" aria-current="page"{% endif %}>02 服务器初始化</a></li>
+    <li><a href="{{ '/03-vless-reality.html' | relative_url }}"{% if page.name == '03-vless-reality.md' %} class="active" aria-current="page"{% endif %}>03 VLESS + Reality</a></li>
+    <li><a href="{{ '/04-hysteria2.html' | relative_url }}"{% if page.name == '04-hysteria2.md' %} class="active" aria-current="page"{% endif %}>04 Hysteria2</a></li>
+    <li><a href="{{ '/05-cloudflare-tls.html' | relative_url }}"{% if page.name == '05-cloudflare-tls.md' %} class="active" aria-current="page"{% endif %}>05 Cloudflare / TLS</a></li>
+    <li><a href="{{ '/06-clients.html' | relative_url }}"{% if page.name == '06-clients.md' %} class="active" aria-current="page"{% endif %}>06 客户端</a></li>
+    <li><a href="{{ '/07-troubleshooting.html' | relative_url }}"{% if page.name == '07-troubleshooting.md' %} class="active" aria-current="page"{% endif %}>07 故障排查</a></li>
+    <li><a href="{{ '/08-maintenance.html' | relative_url }}"{% if page.name == '08-maintenance.md' %} class="active" aria-current="page"{% endif %}>08 日常运维</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,101 @@
+---
+---
+
+@import 'jekyll-theme-cayman';
+
+.page-shell {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.sidebar {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.docs-nav {
+  padding: 1rem 1.1rem;
+  background: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+}
+
+.docs-nav-title {
+  margin-bottom: 0.65rem;
+  color: #606c71;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.docs-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.docs-nav li + li {
+  margin-top: 0.35rem;
+}
+
+.docs-nav a {
+  display: block;
+  padding: 0.25rem 0.35rem;
+  color: #1e6bb8;
+  line-height: 1.35;
+  border-radius: 4px;
+}
+
+.docs-nav a:hover {
+  background: #f3f6fa;
+  text-decoration: none;
+}
+
+.docs-nav a.active {
+  color: #155799;
+  font-weight: 700;
+  background: #e8f0fb;
+}
+
+.page-shell .main-content {
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .page-shell {
+    display: block;
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .sidebar {
+    position: static;
+    margin-bottom: 1.25rem;
+  }
+
+  .docs-nav {
+    padding: 0.85rem 0.9rem;
+  }
+
+  .docs-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .docs-nav li + li {
+    margin-top: 0;
+  }
+
+  .docs-nav a {
+    padding: 0.2rem 0.35rem;
+  }
+}
