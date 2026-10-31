@@ -3,6 +3,8 @@ description: Debian、VLESS Reality、Hysteria2 与 Cloudflare 的中文部署�
 lang: zh-CN
 theme: jekyll-theme-cayman
 markdown: kramdown
+kramdown:
+  toc_levels: 2..3
 show_downloads: false
 # 对 Project Pages 来说，使用相对路径链接能在默认域名与自定义域名下工作。
 exclude:

@@ -5,6 +5,8 @@ title: 02 · Debian 初始化
 
 # 02 · Debian 初始化、UFW 与 SSH
 
+{% include page-toc.html %}
+
 [← 上一章：VPS 选型](01-vps-selection.md) · [下一章：VLESS + Reality →](03-vless-reality.md)
 
 这一章把“刚买来的机器”变成“可以安全远程管理、且不会把自己锁在外面”的服务器。

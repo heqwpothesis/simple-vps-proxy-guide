@@ -70,6 +70,38 @@
   margin: 0;
 }
 
+.page-toc {
+  margin: 0 0 2rem;
+  padding: 0.85rem 1rem;
+  background: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.page-toc summary {
+  color: #155799;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.page-toc ul {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.page-toc li + li {
+  margin-top: 0.2rem;
+}
+
+.page-toc a {
+  text-decoration: none;
+}
+
+.page-toc a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 800px) {
   .page-shell {
     display: block;

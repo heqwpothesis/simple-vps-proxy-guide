@@ -5,6 +5,8 @@ title: 04 · Hysteria2
 
 # 04 · Hysteria2：UDP、ACME 和用户认证
 
+{% include page-toc.html %}
+
 [← 上一章：VLESS + Reality](03-vless-reality.md) · [下一章：Cloudflare、TLS 与 CDN →](05-cloudflare-tls.md)
 
 这一章配置 **UDP 443** 的 Hysteria2。它基于 QUIC，适合丢包、延迟抖动和移动网络；代价是**需要自己的域名和 TLS 证书**。

@@ -5,6 +5,8 @@ title: 03 · VLESS + Reality
 
 # 03 · Xray：VLESS + Reality + Vision
 
+{% include page-toc.html %}
+
 [← 上一章：服务器初始化](02-server-setup.md) · [下一章：Hysteria2 →](04-hysteria2.md)
 
 这一章配置 **TCP 443** 的 VLESS + Reality + Vision。

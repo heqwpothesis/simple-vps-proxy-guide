@@ -5,6 +5,8 @@ title: 06 · 客户端
 
 # 06 · 客户端：桌面与手机（Throne、Clash Verge、v2rayNG、Hiddify）
 
+{% include page-toc.html %}
+
 [← 上一章：Cloudflare、TLS 与 CDN](05-cloudflare-tls.md) · [下一章：故障排查 →](07-troubleshooting.md)
 
 服务端显示 `active`、端口在监听，只说明进程活着。这一章把服务端参数填进客户端，并用一次真实 HTTPS 请求确认：**流量确实从 VPS 出去了**。

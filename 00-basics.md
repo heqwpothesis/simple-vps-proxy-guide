@@ -5,6 +5,8 @@ title: 00 · 零基础准备
 
 # 00 · 零基础准备：先弄懂这些词
 
+{% include page-toc.html %}
+
 [← 总览](index.md) · [下一章：VPS 选型 →](01-vps-selection.md)
 
 如果你从没登录过 Linux 服务器，先读这一章。它不教你敲命令，只解释后面反复出现的词，以及这套系统到底怎么工作。已经熟悉 VPS、SSH、TCP/UDP 的读者可以直接跳到 [01](01-vps-selection.md)。
