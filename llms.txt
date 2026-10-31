@@ -1,0 +1,51 @@
+# VPS 自建部署指南
+
+> 中文 VPS 代理部署手册：从购买 Debian VPS，到配置 Xray VLESS + Reality、Hysteria2、客户端接入、故障排查和日常运维。面向零基础读者，也保留有 Linux 经验者需要的命令和边界说明。Beginner-friendly Chinese guide for self-hosting a VPS proxy.
+
+本文档不提供现成节点、账号或订阅。所有 IP、域名、密钥和密码都是占位符，必须替换成自己的值。
+
+## 适用范围
+
+- 系统：Debian 12 或当前受支持的 Debian 稳定版。
+- 服务端：Xray-core（VLESS + Reality + Vision，TCP 443）与 Hysteria2（UDP 443）。
+- 域名与证书：Cloudflare DNS、Let's Encrypt ACME（HTTP-01）。
+- 客户端：桌面 Throne、Clash Verge / Mihomo；手机 v2rayNG（Android）、Hiddify（Android / iOS）。
+- 目标：个人自建代理，不是商业机场，也不是高可用集群方案。
+
+## 快速理解
+
+- 客户端把流量加密后送到 VPS，VPS 再访问目标网站；目标网站看到的是 VPS 的 IP。
+- Reality 走 TCP 443，不需要自己的域名或证书，借用真实 HTTPS 站点的 TLS 握手。
+- Hysteria2 走 UDP 443，基于 QUIC，需要自己的域名和 TLS 证书。
+- TCP 443 与 UDP 443 是两套独立端口空间，可以同时监听。
+- 同一台 VPS 上的两个协议共享 IP、主机和上游线路，**不是容灾**。
+- 验收不能只看进程 `active`：要确认端口监听、客户端认证成功，并通过 `curl` 看到 VPS 出口 IP。
+
+## 章节索引
+
+- [总览](index.html)：文档范围、准备清单、两条阅读路径、验收标准。
+- [00 零基础准备](00-basics.html)：IP、端口、TCP/UDP、SSH、DNS、TLS、SNI、Reality、UUID 等核心概念。
+- [01 VPS 选型与购买](01-vps-selection.html)：地域、线路、资源、供应商对比（RackNerd、DigitalOcean、Vultr、Hetzner）和交付检查。
+- [02 Debian 初始化](02-server-setup.html)：系统更新、UFW、SSH 公钥登录、防火墙锁定后的恢复。
+- [03 VLESS + Reality](03-vless-reality.html)：Xray 安装、Reality 密钥、UUID、Short ID、服务端配置、客户端 URI。
+- [04 Hysteria2](04-hysteria2.html)：UDP 443、ACME 证书、用户认证、masquerade、权限和端到端验证。
+- [05 Cloudflare、TLS 与 CDN](05-cloudflare-tls.html)：Hysteria2 的域名、A 记录、灰云/橙云、HTTP-01/DNS-01 和 CDN 边界。
+- [06 客户端](06-clients.html)：桌面 Throne、Clash Verge / Mihomo，手机 Android（v2rayNG / Hiddify）和 iOS（Hiddify）配置，System Proxy/TUN/规则，出口 IP 验证。
+- [07 故障排查](07-troubleshooting.html)：按网络、端口、TLS、认证、HTTP 分层定位；timeout/refused/401/403 的含义。
+- [08 日常运维](08-maintenance.html)：每周检查、日志、升级、加密备份、用户撤销与轮换、容灾边界。
+
+## 关键约束与安全边界
+
+- 文档中的 `203.0.113.10` 是示例 IPv4，`example.com` 是示例域名；不能用于真实连接。
+- 不要把真实 VPS IP、个人域名、UUID、私钥、密码、完整节点 URI 或 Cloudflare Token 写入公开仓库、issue、截图或群聊。
+- 修改 SSH 或防火墙前，先确认服务商 Web Console 可用，并保留一个已登录会话。
+- Hysteria2 的域名记录必须使用 Cloudflare **DNS only（灰云）**；橙云不转发 Hysteria2 的原始 UDP。
+- Reality 的客户端参数必须与服务端一致：UUID、SNI、Reality 公钥（`pbk`）、Short ID（`sid`）、`flow`。
+- 新版 `xray x25519` 输出中的 `Password` 是 Reality 公钥，不是登录密码；`Hash32` 不需要填。
+- 只验证 TCP 443 不能证明 UDP 443 可用；只看到 `active` 不能证明外部可达。
+- 需要 IP 或网络级容灾时，使用第二台不同 ASN/线路的 VPS，独立部署和监控。
+
+## 机器读取说明
+
+- 本文件位于站点根目录，链接指向部署后的 `.html` 页面。
+- 各章节页面包含完整命令、配置模板、验收步骤和风险提示。

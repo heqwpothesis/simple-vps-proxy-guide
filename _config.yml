@@ -1,0 +1,9 @@
+title: VPS 自建部署指南
+description: Debian、VLESS Reality、Hysteria2 与 Cloudflare 的中文部署和运维参考
+lang: zh-CN
+theme: jekyll-theme-cayman
+markdown: kramdown
+show_downloads: false
+# 对 Project Pages 来说，使用相对路径链接能在默认域名与自定义域名下工作。
+exclude:
+  - README.md
